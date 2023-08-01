@@ -1,0 +1,17 @@
+{
+  assert(n != 0);
+  auto s = a[--n];
+  while (n != 0)
+    s = s * x + a[--n];
+  return s;
+}
+
+// fma(a, b, c) --> (a * b + c) с одним округлением (C99, C++11)
+double poly_horner_fma(double x, double a[], size_t n)
+{
+  assert(n != 0);
+  auto s = a[--n];
+  while (n != 0)
+    s = fma(s, x, a[--n]);
+  return s;
+}
